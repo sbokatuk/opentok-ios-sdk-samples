@@ -14,23 +14,25 @@
 
 @end
 
+BOOL isMuted;
+
 @implementation ViewController {
     OTSession* _session;
     OTPublisher* _publisher;
     OTSubscriber* _subscriber;
     OTDefaultAudioDevice* _myAudioDevice;
 }
-static double widgetHeight = 240;
-static double widgetWidth = 320;
+static double widgetHeight = 200;
+static double widgetWidth = 300;
 
 // *** Fill the following variables using your own Project info  ***
 // ***          https://dashboard.tokbox.com/projects            ***
 // Replace with your OpenTok API key
-static NSString* const kApiKey = @"";
+static NSString* const kApiKey = @"45516162";
 // Replace with your generated session ID
-static NSString* const kSessionId = @"";
+static NSString* const kSessionId = @"2_MX40NTUxNjE2Mn5-MTQ1NzM3MDAwMTc0OX5wSVREYXMrd2s1dGkxam4wZnVOV2d1SFl-UH4";
 // Replace with your generated token
-static NSString* const kToken = @"";
+static NSString* const kToken = @"T1==cGFydG5lcl9pZD00NTUxNjE2MiZzaWc9MDRjNTFmYWIwNWVmODQ3Yzc0MWI4YzE2MWJmOGQ3YzMwZGM3YjU4Yzpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTJfTVg0ME5UVXhOakUyTW41LU1UUTFOek0zTURBd01UYzBPWDV3U1ZSRVlYTXJkMnMxZEdreGFtNHdablZPVjJkMVNGbC1VSDQmY3JlYXRlX3RpbWU9MTQ1NzM3MTEwMSZub25jZT0wLjU3NDAxMDk3MDM0NTcxMzEmZXhwaXJlX3RpbWU9MTQ1NzM3MzU5OCZjb25uZWN0aW9uX2RhdGE9";
 
 // Change to NO to subscribe to streams other than your own.
 static bool subscribeToSelf = NO;
@@ -52,11 +54,41 @@ static bool subscribeToSelf = NO;
                                         delegate:self];
     
     [self doConnect];
+    UIButton *but= [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [but addTarget:self action:@selector(speakerClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [but setFrame:CGRectMake(1, 401, 140, 20)];
+    [but setTitle:@"Toggle Speaker" forState:UIControlStateNormal];
+    [but setExclusiveTouch:YES];
+    [self.view addSubview:but];
+    
+    UIButton *but2= [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [but2 addTarget:self action:@selector(micClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [but2 setFrame:CGRectMake(1, 431, 100, 20)];
+    [but2 setTitle:@"Toggle Mic" forState:UIControlStateNormal];
+    [but2 setExclusiveTouch:YES];
+    [self.view addSubview:but2];
+    isMuted = FALSE;
+
+}
+
+-(void) micClicked:(UIButton*)sender
+{
+    NSLog(@"you clicked on button Toggle Mic");
+    
+    isMuted = !isMuted;
+    _publisher.publishAudio = !isMuted;
+}
+
+-(void) speakerClicked:(UIButton*)sender
+{
+    NSLog(@"you clicked on button Toggle Speaker");
+    
+    [_myAudioDevice switchAudio];
 }
 
 - (BOOL)prefersStatusBarHidden
 {
-    return YES;
+    return NO;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:

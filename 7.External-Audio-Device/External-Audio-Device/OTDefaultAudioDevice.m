@@ -42,7 +42,7 @@ options:NSNumericSearch] != NSOrderedDescending)
 #define kSampleRate 48000
 #endif
 
-#define OT_ENABLE_AUDIO_DEBUG 0
+#define OT_ENABLE_AUDIO_DEBUG 1
 
 #if OT_ENABLE_AUDIO_DEBUG
 #define OT_AUDIO_DEBUG NSLog
@@ -73,6 +73,7 @@ static OSStatus playout_cb(void *ref_con,
 - (void) setupListenerBlocks;
 @end
 
+BOOL isSpeaker;
 @implementation OTDefaultAudioDevice
 {
     OTAudioFormat *_audioFormat;
@@ -111,6 +112,20 @@ static OSStatus playout_cb(void *ref_con,
     uint32_t _recordingDelayMeasurementCounter;
     Float64 _playout_AudioUnitProperty_Latency;
     Float64 _recording_AudioUnitProperty_Latency;
+    
+}
+
+-(void)switchAudio
+{
+    AVAudioSession *mySession = [AVAudioSession sharedInstance];
+    isSpeaker = !isSpeaker;
+    if (isSpeaker) {
+        [mySession overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker error:nil];
+    }
+    else
+    {
+        [mySession overrideOutputAudioPort:AVAudioSessionPortOverrideNone error:nil];
+    }
 }
 
 #pragma mark - OTAudioDeviceImplementation
@@ -124,6 +139,7 @@ static OSStatus playout_cb(void *ref_con,
         _audioFormat.numChannels = 1;
         _safetyQueue = dispatch_queue_create("ot-audio-driver",
                                              DISPATCH_QUEUE_SERIAL);
+        isSpeaker = TRUE;
     }
     return self;
 }

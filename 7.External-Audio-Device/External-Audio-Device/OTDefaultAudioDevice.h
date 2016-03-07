@@ -51,4 +51,6 @@
 - (BOOL)configureAudioSessionWithDesiredAudioRoute:(NSString*)desiredAudioRoute;
 - (BOOL)detectCurrentRoute;
 
+
+- (void)switchAudio;
 @end
