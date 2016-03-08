@@ -28,11 +28,11 @@ static double widgetWidth = 300;
 // *** Fill the following variables using your own Project info  ***
 // ***          https://dashboard.tokbox.com/projects            ***
 // Replace with your OpenTok API key
-static NSString* const kApiKey = @"45516162";
+static NSString* const kApiKey = @"";
 // Replace with your generated session ID
-static NSString* const kSessionId = @"1_MX40NTUxNjE2Mn5-MTQ1NzM3NDA4MDc1MH4xRWFJR3dVZERWNk1vWCtaaUNmcURIeHN-UH4";
+static NSString* const kSessionId = @"";
 // Replace with your generated token
-static NSString* const kToken = @"T1==cGFydG5lcl9pZD00NTUxNjE2MiZzaWc9MGVkMDhiZmRmOTU0YmNhMzMzMmZlNDk1YzdiYmFlNjliNWQ2ODlmMzpyb2xlPXB1Ymxpc2hlciZzZXNzaW9uX2lkPTFfTVg0ME5UVXhOakUyTW41LU1UUTFOek0zTkRBNE1EYzFNSDR4UldGSlIzZFZaRVJXTmsxdldDdGFhVU5tY1VSSWVITi1VSDQmY3JlYXRlX3RpbWU9MTQ1NzM3NDA4MyZub25jZT0wLjA0MDQ1MTkwMDc1NDA4Njc4JmV4cGlyZV90aW1lPTE0NTczNzc2NzcmY29ubmVjdGlvbl9kYXRhPQ==";
+static NSString* const kToken = @"";
 
 // Change to NO to subscribe to streams other than your own.
 static bool subscribeToSelf = NO;
@@ -88,7 +88,7 @@ static bool subscribeToSelf = NO;
 
 - (BOOL)prefersStatusBarHidden
 {
-    return NO;
+    return YES;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:
