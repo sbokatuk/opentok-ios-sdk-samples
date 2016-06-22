@@ -50,7 +50,7 @@
 
 /* Begin PBXFileReference section */
 		0C16851F1A71913F00A507E3 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
-		0CBBA3EC196B5192005F55D4 /* External-Audio-Device.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "External-Audio-Device.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CBBA3EC196B5192005F55D4 /* OTK.2.8.2  native.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OTK.2.8.2  native.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CBBA3EF196B5192005F55D4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0CBBA3F1196B5192005F55D4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		0CBBA3F3196B5192005F55D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -139,7 +139,7 @@
 		0CBBA3ED196B5192005F55D4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0CBBA3EC196B5192005F55D4 /* External-Audio-Device.app */,
+				0CBBA3EC196B5192005F55D4 /* OTK.2.8.2  native.app */,
 				0CBBA410196B5192005F55D4 /* External-Audio-DeviceTests.xctest */,
 			);
 			name = Products;
@@ -244,7 +244,7 @@
 			);
 			name = "External-Audio-Device";
 			productName = "External-Audio-Device";
-			productReference = 0CBBA3EC196B5192005F55D4 /* External-Audio-Device.app */;
+			productReference = 0CBBA3EC196B5192005F55D4 /* OTK.2.8.2  native.app */;
 			productType = "com.apple.product-type.application";
 		};
 		0CBBA40F196B5192005F55D4 /* External-Audio-DeviceTests */ = {
@@ -466,7 +466,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -499,7 +499,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -527,7 +527,8 @@
 					"${SRCROOT}/External-Audio-Device",
 				);
 				INFOPLIST_FILE = "External-Audio-Device/External-Audio-Device-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "TokBox.2-8-2-opentok-test";
+				PRODUCT_NAME = "OTK.2.8.2  native";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -553,7 +554,8 @@
 					"${SRCROOT}/External-Audio-Device",
 				);
 				INFOPLIST_FILE = "External-Audio-Device/External-Audio-Device-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "TokBox.2-8-2-opentok-test";
+				PRODUCT_NAME = "OTK.2.8.2  native";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
